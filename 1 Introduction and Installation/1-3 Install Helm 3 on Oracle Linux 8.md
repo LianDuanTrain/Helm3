@@ -29,8 +29,8 @@ helm repo add  elastic    https://helm.elastic.co
 helm repo add  gitlab     https://charts.gitlab.io
 helm repo add  harbor     https://helm.goharbor.io
 helm repo add  bitnami    https://charts.bitnami.com/bitnami
-helm repo add  incubator  https://kubernetes-charts-incubator.storage.googleapis.com
-helm repo add  kubernetesStable     https://kubernetes-charts.storage.googleapis.com
+helm repo add  incubator  https://charts.helm.sh/incubator
+
 ```
 #### Update Repo  
 - `helm repo update` 
