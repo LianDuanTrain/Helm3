@@ -1,4 +1,4 @@
-# Install Helm 3 with Minikube on Windows 
+# Install Helm 3 with Minikube on Windows 10
 ## Topics
 -  How to Find Compatible Helm 3 Version?   
 -  Hands on Demo 
