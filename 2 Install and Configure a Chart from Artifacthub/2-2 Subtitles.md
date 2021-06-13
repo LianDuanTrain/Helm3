@@ -2,12 +2,13 @@ Hi everybody. I'm Lian Duan. Today we are going to talk about Create a Your Firs
 The tpioc I'm go though in this video are 
 
 ## Topics
--  Creates a chart directory
--  Install a Chart
--  Install a Chart with NameSpace
--  Uninstall a Chart   
+-  Creates a Chart directory
+-  Creates a K8S resource in Chart 
+-  Verify Chart
+
 ## Creates a Chart directory
  - `helm create my-app-config`
+ - 
 ```
 my-app-config
 ├── charts
@@ -31,13 +32,10 @@ The values passed to a --set or --set-string flag on helm install or helm upgrad
 └── values.yaml         # The default values for your templates  存储该chart的默认值，实际安装时可以对默认值进行覆盖。
 
 ```
-## Install a Chart 
-
-- helm install my-app-config ./my-app-config/
-
+## Creates a K8S resource in Chart 
 my-app-config.yaml   
 ```
- apiVersion: v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-app-config
@@ -50,18 +48,8 @@ data:
 - Get Release List 
    - `helm list` 
 
-## Install a Chart with NameSpace
-- `helm install my-app-config ./my-app-config/ --namespace=qa-env --create-namespace --wait` 
-- Check ConfigMap
-   - `kubectl get ConfigMap --namespace=qa-env`
-   - `kubectl get ConfigMap my-app-config -o yaml --namespace=qa-env`
-- `helm list --namespace=qa-env` 
-
-## Uninstall a Chart 
-- `helm uninstall my-app-config`   
-- `kubectl get ConfigMap`   
-- `helm uninstall my-app-config --namespace=qa-env`   
-- `kubectl get ConfigMap --namespace=qa-env` 
+## Verify Chart
+- `helm lint` 
 
 <font size=1 >Icons made by www.freepik.com</font> 
 

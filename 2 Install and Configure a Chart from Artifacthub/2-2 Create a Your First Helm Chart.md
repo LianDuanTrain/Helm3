@@ -40,19 +40,3 @@ data:
 - `helm lint`
 
 
-
-## Install a Chart 
-- helm install my-app-config ./my-app-config/   
-
-## Install a Chart with NameSpace
-- `helm install my-app-config ./my-app-config/ --namespace=qa-env --create-namespace --wait` 
-- Check ConfigMap
-   - `kubectl get ConfigMap --namespace=qa-env`
-   - `kubectl get ConfigMap my-app-config -o yaml --namespace=qa-env`
-- `helm list --namespace=qa-env` 
-
-## Uninstall a Chart 
-- `helm uninstall my-app-config`   
-- `kubectl get ConfigMap`   
-- `helm uninstall my-app-config --namespace=qa-env`   
-- `kubectl get ConfigMap --namespace=qa-env`   
