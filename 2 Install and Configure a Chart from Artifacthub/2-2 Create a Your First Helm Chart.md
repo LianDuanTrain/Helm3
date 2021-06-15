@@ -1,6 +1,9 @@
-# Create a Your First Helm Chart
-
-##  Creates a Chart directory
+# Create Your First Helm Chart
+## Topics
+- Create a Chart directory
+- Create a K8S resource in Chart
+- Verify Chart
+##  Create a Chart directory
  - `helm create my-app-config`
 ```
 my-app-config
@@ -20,7 +23,7 @@ my-app-config
 
 ```
 
-## Creates a K8S resource in Chart 
+## Create a K8S Resource in Chart 
 my-app-config.yaml   
 ```
  apiVersion: v1
@@ -30,11 +33,7 @@ metadata:
 data:
   username: lian
 ```   
-- Check ConfigMap
-   - `kubectl get ConfigMap`
-   - `kubectl get ConfigMap my-app-config -o yaml`
-- Get Release List 
-   - `helm list` 
+
 
 ## Verify Chart
 - `helm lint`

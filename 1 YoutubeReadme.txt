@@ -3,7 +3,7 @@ Subscribe to show your support! https://bit.ly/3hrhOmW
 In today's video, we start a series Helm 3 Introduction and Installation. 
 In this video, we cover Install Helm 3 with Minikube on Windows 10
 
---------------- T I M E S T A M P S ⏰ ---------------
+---------------⏰  T I M E S T A M P S ⏰ ---------------
 Topics of this video
 - 0:34  How to Find Compatible Helm 3 Version?   
 - Hands on Demo 
