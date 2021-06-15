@@ -1,9 +1,9 @@
 # Create Your First Helm Chart
 ## Topics
-- Create a Chart directory
-- Create a K8S resource in Chart
+- Create a Chart Directory
+- Create a K8S Resource in Chart
 - Verify Chart
-##  Create a Chart directory
+##  Create a Chart Directory
  - `helm create my-app-config`
 ```
 my-app-config
