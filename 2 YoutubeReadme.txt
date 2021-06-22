@@ -1,18 +1,27 @@
 Subscribe to show your support! https://bit.ly/3hrhOmW
 
-In today's video, we start a series Helm 3 Introduction and Installation. 
-In this video, we cover Create a Your First Helm Chart
+In today's video, we start a series Install and Configure a Chart. 
+In this video, we cover Install & Uninstall a Helm Chart in Kubernetes Cluster
 
----------------⏰ TIMESTAMPS ⏰ ---------------
+---------------⏰ TIMESTAMPS ⏰ --------------------------------
 Topics of this video
--  01:12 Creates a Chart directory
--  03:51 Creates a K8S Resource in Chart 
--  05:41 Verify Chart
+- 00:28 Install a Chart
+- 04:28 Install a Chart with NameSpace
+- 07:36 Uninstall a Chart  
 
----------------🖥️ Source Code 🖥️ ---------------
+Kubernetes ConfigMap
+https://youtu.be/VCT4XtJllfo
+
+---------------🖥️ Source Code 🖥️ ----------------------------------
 
 To follow along, scan down below for the link to the GitHub repo. 
-https://github.com/LianDuanTrain/Helm/tree/master/1%20Introduction%20and%20Installation
+https://github.com/LianDuanTrain/Helm/tree/master/2%20Install%20and%20Configure%20a%20Chart
+
+------------------------------------------------------------------------------------
+If you're new to Helm3, check out my guides below:
+
+Helm 3 Introduction and Installation
+https://bit.ly/3wHq1I5
 
 ------------------------------------------------------------------------------------
 
@@ -41,6 +50,3 @@ https://www.youtube.com/playlist?list=PLigGXNza3t_ziW7yNXqzVPn9v3ku1pAg1
 
 ------------------------------------------------------------------------------------
 Easy Connect: https://bit.ly/3tN3DeI
-
-
-
