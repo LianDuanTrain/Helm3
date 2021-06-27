@@ -3,8 +3,8 @@
 ## Topics
 - Change Version of a Helm Chart 
 - Install the Helm Chart 
-- Create a New Version of the Chart
-- Upgrate the Chart to New Version
+- Create a New Version of the Helm Chart
+- Upgrade the Helm Chart to New Version
 
 ## Change Version of a Helm Chart  
 - Change version and appVersion in Chart.yaml  
@@ -20,10 +20,9 @@
   - `helm list`   
   - `kubectl get secret --all-namespaces -l "owner=helm"`   
 
-## Create a New Version of the Chart
+## Create a New Version of the Helm Chart
   - https://semver.org/  
-- 
-## Upgrate the Chart to New Version
+## Upgrade the Helm Chart to New Version
 - Upgrade Chart
   - `helm upgrade my-app-config ./my-app-config/v2`   
 - Check ConfigMap

@@ -26,7 +26,7 @@ my-app-config
 ## Create a K8S Resource in Chart 
 my-app-config.yaml   
 ```
- apiVersion: v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-app-config
