@@ -1,16 +1,14 @@
 Subscribe to show your support! https://bit.ly/3hrhOmW
 
 In today's video, we start a series Install and Configure a Chart. 
-In this video, we cover Install & Uninstall a Helm Chart in Kubernetes Cluster
+In this video, we cover Upgrade a Helm Chart in Kubernetes Cluster
 
 ---------------⏰ TIMESTAMPS ⏰ --------------------------------
 Topics of this video
-- 00:28 Install a Chart
-- 04:28 Install a Chart with NameSpace
-- 07:36 Uninstall a Chart  
-
-Kubernetes ConfigMap
-https://youtu.be/VCT4XtJllfo
+- 00:07 Change Version of a Helm Chart 
+- 02:40 Install the Helm Chart 
+- 04:16 Create a New Version of the Helm Chart
+- 05:22 Upgrade the Helm Chart to New Version  
 
 ---------------🖥️ Source Code 🖥️ ----------------------------------
 
@@ -18,10 +16,16 @@ To follow along, scan down below for the link to the GitHub repo.
 https://github.com/LianDuanTrain/Helm/tree/master/2%20Install%20and%20Configure%20a%20Chart
 
 ------------------------------------------------------------------------------------
-If you're new to Helm3, check out my guides below:
+If you're new to Helm 3, check out my guides below:
 
 Helm 3 Introduction and Installation
 https://bit.ly/3wHq1I5
+
+Install & Uninstall a Helm Chart in Kubernetes Cluster
+https://youtu.be/JRkIJ6PAYxI
+
+Kubernetes ConfigMap 
+https://youtu.be/VCT4XtJllfo
 
 ------------------------------------------------------------------------------------
 
