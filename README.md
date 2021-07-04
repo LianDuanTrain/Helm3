@@ -9,5 +9,5 @@ The Chert files is used to Helm 3 Training
 `$ helm repo update`
 
 ## Install Packages (stable)  
-`$ helm install my-release my-app-config-stable/my-app-config [--version 2.0.0]`  
+`$ helm install my-release my-app-config-stable/my-app-config [--version=2.0.0]`  
 
