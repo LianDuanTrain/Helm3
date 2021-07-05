@@ -3,9 +3,9 @@ entries:
   my-app-config:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2021-07-02T14:19:08.81733327-04:00"
-    description: A Helm chart for Kubernetes
-    digest: 9171db3a985a8dee872c866691e63a7c2ec91dee39052ac16b5d8153052ef067
+    created: "2021-07-02T20:18:46.167975313-04:00"
+    description: A Helm Chart for Helm 3 Training
+    digest: afde52ff80ffd90fc23abbe0fb65e456147db70caac2c7e91d01c1989d6ee0a4
     name: my-app-config
     type: application
     urls:
@@ -13,12 +13,12 @@ entries:
     version: 2.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-07-02T14:17:48.148078939-04:00"
-    description: A Helm chart for Kubernetes
-    digest: 2c32149e7f616028c17bafa9a9b99195afd1d042c759abc4f97accbb419f53e8
+    created: "2021-07-02T20:17:05.435798525-04:00"
+    description: A Helm Chart for Helm 3 Training
+    digest: 221e040eb38873cb3cf391561bf98f4df3634eacd65ce3cf2c1fb426ddce21f2
     name: my-app-config
     type: application
     urls:
     - https://lianduantrain.github.io/Helm3/stable/my-app-config-1.0.0.tgz
     version: 1.0.0
-generated: "2021-07-02T14:19:08.813323669-04:00"
+generated: "2021-07-02T20:18:46.167520839-04:00"
