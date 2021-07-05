@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  my-app-config:
+  - apiVersion: v2
+    appVersion: 2.0.0
+    created: "2021-07-03T07:37:24.206657052-04:00"
+    description: A Helm Chart for Helm 3 Training
+    digest: 113b4944bfc2e50f50a7866d7619d4c80f9047f85ee6118dc81e7a337bbeb156
+    name: my-app-config
+    type: application
+    urls:
+    - https://lianduantrain.github.io/Helm3/stable/my-app-config-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-07-03T07:35:33.415561125-04:00"
+    description: A Helm Chart for Helm 3 Training
+    digest: 41d7decff17d5bb7fc55c4377fc249bb8ebeaec03949a9932bdcd4bfa5f51fa7
+    name: my-app-config
+    type: application
+    urls:
+    - https://lianduantrain.github.io/Helm3/stable/my-app-config-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-07-03T07:37:24.20617211-04:00"
