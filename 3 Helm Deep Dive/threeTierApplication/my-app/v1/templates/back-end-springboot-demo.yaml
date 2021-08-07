@@ -1,0 +1,44 @@
+# API Version  
+apiVersion: apps/v1
+kind: Deployment
+# Deployment metadata start
+metadata:
+  name: three-tier-app-back-end-deployment
+  labels:
+    app: back-end-app-springboot-demo
+  #namespace: helm3  
+# Deployment metadata end
+# Pod spec start    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back-end-app-springboot-demo
+# Pod spec end       
+# template start      
+  template:
+    metadata:
+      #namespace: helm3
+      labels:
+        app: back-end-app-springboot-demo
+    spec:
+      containers:
+      - name: back-end-app-springboot-demo
+        image: lianduantraining/springbootdemo:v3
+        imagePullPolicy: Always       
+        ports:
+        - containerPort: 9999
+# template end 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-end-app-springboot-demo
+  #namespace: helm3
+spec:
+  selector:
+    app: back-end-app-springboot-demo
+  ports:
+    - protocol: TCP
+      port: 9999
+      targetPort: 9999
