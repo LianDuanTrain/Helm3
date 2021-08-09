@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:   three-tier-app-back-end-db-redis-deployment
+  labels:
+    app: back-end-db-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back-end-db-redis
+  template:
+    metadata:
+      labels:
+        app: back-end-db-redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:3.0.7
+        command:
+          - "sh"
+          - "-c"
+          - "redis-server /usr/local/redis/redis.conf"
+        ports:
+        - containerPort: 6379
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+          requests:
+            cpu: 1000m
+            memory: 1024Mi
+        livenessProbe:
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 300
+          timeoutSeconds: 1
+          periodSeconds: 1
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        volumeMounts:
+        - name: config
+          mountPath:  /usr/local/redis/redis.conf
+          subPath: redis.conf
+      volumes:
+      - name: config
+        configMap:
+          name: back-end--db-redis-configmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-end-db-redis
+  labels:
+    app: back-end-db-redis
+spec:
+  type: NodePort
+  ports:
+    - name: tcp
+      port: 6379
+      targetPort: 6379
+      #nodePort: 30379
+  selector:
+    app: back-end-db-redis
