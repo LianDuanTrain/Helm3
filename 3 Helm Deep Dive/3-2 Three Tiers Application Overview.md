@@ -1,24 +1,24 @@
-# Three Tiers Application- Overview 
+# Three Tiers Application Overview 
 ## Topics  
 - Application Overview      
 - Demo
  
 ## Application Overview  
-<image src= Helm3.jpg/ width=50%>  
+<image src= Helm3.jpg width=50%>  
 
 - Front-End
   - React SPA
   - URL: www.helm3training.com
   - YAML Files
     - front-end-ingress.yaml
-    - front-end-react-app.yaml
+    - front-end-react.yaml
 - Back-End 
   - Spring Boot as restful web services
   - URL: api.helm3training.com 
   - YAML Files
     - back-end-ingress.yaml
     - back-end-springboot-config.yaml
-    - back-end-springboot-demo.yaml
+    - back-end-springboot.yaml
 - DB
   - Redis - One Node 
   - Service Name: back-end-db-redis
