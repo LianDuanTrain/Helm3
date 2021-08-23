@@ -1,0 +1,44 @@
+# API Version  
+apiVersion: apps/v1
+kind: Deployment
+# Deployment metadata start
+metadata:
+  name: three-tier-app-front-end-deployment 
+  labels:
+    app: front-end-app-react-ui
+  #namespace: helm3  
+# Deployment metadata end
+# Pod spec start    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end-app-react-ui
+# Pod spec end       
+# template start      
+  template:
+    metadata:
+      #namespace: helm3
+      labels:
+        app: front-end-app-react-ui
+    spec:
+      containers:
+      - name: front-end-app-react-ui
+        image: lianduantraining/react-app:v1
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 80
+# template end 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-app-react-ui
+  #namespace: helm3
+spec:
+  selector:
+    app: front-end-app-react-ui
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 80
