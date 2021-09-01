@@ -7,7 +7,7 @@
 
 ## What is Chart Template Functions? 
 - Go template language   
-- Injecting strings from the .Values or .Realase object into the template  
+- Injecting strings from the .Values .Chart and .Realase object into the template  
 - Sprig is template functions for Go templates (https://masterminds.github.io/sprig/ and https://helm.sh/docs/chart_template_guide/function_list/). Sprig has over 60 available functions
 
 ## What is Chart Template Pipelines? 
