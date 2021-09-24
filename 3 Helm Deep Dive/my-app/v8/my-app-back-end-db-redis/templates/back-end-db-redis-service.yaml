@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "my-app-back-end-db-redis.fullname" . }}
+  labels:
+    {{- include "my-app-back-end-db-redis.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+      name: tcp
+  selector:
+    {{- include "my-app-back-end-db-redis.selectorLabels" . | nindent 4 }}
