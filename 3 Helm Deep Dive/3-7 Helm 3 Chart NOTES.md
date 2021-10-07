@@ -3,7 +3,7 @@
 - What is Chart NOTES?
 - How to test Chart NOTES?  
 - Ehance Chart NOTES    
-
+- Demo
 
 # What is Chart NOTES?
 - Instruction of chart users
@@ -29,7 +29,7 @@ My app back end DB Redis is running.
 The Redis only have one Node without persistent volume. 
 The Redis is used to save my app back end Spring Boot app data.
 The Redis service name is {{ include "my-app-back-end-db-redis.fullname" . }}
-The Redis poet is {{.Values.service.port}}
+The Redis port is {{.Values.service.port}}
 --------------------------------------------------
 Get the Redis URL by running these commands:
 {{-  if contains "NodePort" .Values.service.type }}
@@ -46,5 +46,6 @@ Get the Redis URL by running these commands:
 
 ## Demo
 
-  - `helm install my-app .  --dry-run  --namespace=qa-env --create-namespace --wait`  
-  - `helm uninstall my-app .   --namespace=qa-env`   
+  - `helm install my-app .  --dry-run  --debug --namespace=qa-env --create-namespace --wait`  
+  - `helm install my-app . --namespace=qa-env --create-namespace --wait`  
+  - `helm uninstall my-app   --namespace=qa-env`   
