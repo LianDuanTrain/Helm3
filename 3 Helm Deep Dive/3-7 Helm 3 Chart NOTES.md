@@ -2,7 +2,7 @@
 ## Topics  
 - What is Chart NOTES?
 - How to test Chart NOTES?  
-- Ehance Chart NOTES    
+- Enhance Chart NOTES    
 - Demo
 
 # What is Chart NOTES?
@@ -13,7 +13,7 @@
 # How to test Chart NOTES?
 - helm install or helm upgrade with --debug --dry-run
 
-# Ehance Chart NOTES 
+# Enhance Chart NOTES 
 ## Original Version
 ### Content  
 <image src="Notes.jpg"/>
@@ -21,7 +21,7 @@
 ### Render Result 
 <image src="RenderNotes.png"/>
 
-### Ehance Version
+### Enhance Version
 ### Content 
 ```
 My app back end DB Redis is running. 
