@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:   {{ include "my-app-back-end-db-redis.fullname" . }}
+  labels:
+     {{- include "my-app-back-end-db-redis.labels" . | nindent 4 }} 
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "my-app-back-end-db-redis.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "my-app-back-end-db-redis.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command:
+          - "sh"
+          - "-c"
+          - "redis-server /usr/local/redis/redis.conf"
+        ports:
+        - containerPort: 6379
+        resources:
+          limits:
+            cpu: {{ .Values.resources.limits.cpu | quote  }}
+            memory: {{ .Values.resources.limits.memory | quote  }}
+          requests:
+            cpu: {{ .Values.resources.requests.cpu | quote  }}
+            memory: {{ .Values.resources.requests.cpu | quote }}
+        livenessProbe:
+          tcpSocket:
+            port: {{ .Values.redis.port}}
+          initialDelaySeconds: 300
+          timeoutSeconds: 1
+          periodSeconds: 1
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        volumeMounts:
+        - name: config
+          mountPath:  /usr/local/redis/redis.conf
+          subPath: redis.conf
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "my-app-back-end-db-redis.fullname" . }}-configmap
+
