@@ -1,0 +1,45 @@
+# API Version  
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "my-app-back-end-springboot-app.fullname" . }}
+  labels:
+    {{- include "my-app-back-end-springboot-app.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "my-app-back-end-springboot-app.selectorLabels" . | nindent 6 }}
+# Pod spec end       
+# template start      
+  template:
+    metadata:
+      #namespace: helm3
+      labels:
+         {{- include "my-app-back-end-springboot-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always      
+          ports:
+          - containerPort: 9999
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu | quote  }}
+              memory: {{ .Values.resources.limits.memory | quote  }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu | quote  }}
+              memory: {{ .Values.resources.requests.cpu | quote }}
+          volumeMounts:
+          - name: demo-config
+            mountPath: /myMicroservice/application.properties
+            subPath: application.properties
+      volumes:
+        - name: demo-config
+          configMap:
+            name: {{ include "my-app-back-end-springboot-app.fullname" . }}-configmap
+            items:
+              - key: application.properties
+                path: application.properties   
+# template end 

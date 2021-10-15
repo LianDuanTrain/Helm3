@@ -1,0 +1,14 @@
+My app back end SpringBoot Restful service is running. 
+--------------------------------------------------
+The SpringBoot Restful service is the endpoint of front end React App
+The SpringBoot Restful service name is {{ include "my-app-back-end-springboot-app.fullname" . }}
+The SpringBoot Restful service port is {{.Values.service.port}}
+--------------------------------------------------
+1. The SpringBoot Restful service Ingress URL is:
+{{- if .Values.ingress.enabled }}
+  {{- range $host := .Values.ingress.hosts }}
+    {{- range .paths }}
+    http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
+    {{- end }}
+  {{- end }}
+{{- end }}

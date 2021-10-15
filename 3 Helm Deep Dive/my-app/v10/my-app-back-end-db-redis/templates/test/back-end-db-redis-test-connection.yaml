@@ -1,3 +1,4 @@
+# Test Springboot URL  '{{ include "my-app-back-end-db-redis.fullname" . }}:{{ .Values.service.port }}'
 apiVersion: v1
 kind: Pod
 metadata:
