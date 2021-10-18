@@ -3,7 +3,7 @@
 - Overview Three Tiers Application Changing
 - Chart Files Change Steps
 - Simulate Chart Issues
-- Troubleshooting
+- How to Troubleshooting?
 
 ## Overview Three Tiers Application Changing
 Implement Functions and Pipelines on Template Files
@@ -11,28 +11,35 @@ Implement Functions and Pipelines on Template Files
 - my-app-back-end-springboot-app
 - my-app-front-end-react-app
 ## Chart Files Change Steps
-- Create a baseline on Chart
-- Create a temp chart file with the same name
+- Find a baseline on Charts
+  - my-app\v5 
+  - https://github.com/LianDuanTrain/Helm3/tree/master/3%20Helm%20Deep%20Dive/my-app/v5
+- Create a temp chart file with the same Chart name
+  - Helm create 
 - Copy files
-  - test file
+  - test yaml file 
   - _helpers.tpl
-- Implement functions and pipelines on Template Files 
-- Change test file
+- Implement functions and pipelines on template files 
+- Change test yaml file
 - Change NOTES
-- Complear files via winmerge
-- --dry-run  --debug
+- Compare files via winmerge
+- Debug Chart files
+  - --dry-run  --debug
 - Helm install/upgrade  
+- Verify React UI   
 ## Simulate Chart Issues
 - Broken working Chart 
-## Troubleshooting
+## How to Troubleshooting?
+- Open React UI
 - Helm test
 - /etc/hosts
 - Open K8s Dashboard
-  - pod
+  - Pod
     - log
     - event 
-  - replica 
+  - Replica 
   - Service
   - Ingress
 - Run a temp Busybox
+- Check Minikube 
 
