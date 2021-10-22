@@ -1,0 +1,15 @@
+My app back end DB Redis is running. 
+--------------------------------------------------
+The Redis only have one Node without persistent volume. 
+The Redis is used to save my app back end Spring Boot app data.
+The Redis service name is {{ include "my-app-back-end-db-redis.fullname" . }}
+The Redis port is {{.Values.service.port}}
+--------------------------------------------------
+Get the Redis URL by running these commands:
+{{-  if contains "NodePort" .Values.service.type }}
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "my-app-back-end-db-redis.fullname" . }})
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo http://$NODE_IP:$NODE_PORT
+{{- else }}
+  Please check NodePort configuration in values.yaml
+{{- end }}

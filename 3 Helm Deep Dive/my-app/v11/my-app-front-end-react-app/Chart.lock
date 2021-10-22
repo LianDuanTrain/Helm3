@@ -1,0 +1,9 @@
+dependencies:
+- name: my-app-back-end-springboot-app
+  repository: file://../my-app-back-end-springboot-app
+  version: 10.0.0
+- name: my-app-back-end-db-redis
+  repository: file://../my-app-back-end-db-redis
+  version: 10.0.0
+digest: sha256:272ea2ad5186c5674693e58b540b513acdb9244da1bf128ab1b351e56db1b22a
+generated: "2021-10-08T09:52:36.086904186-04:00"

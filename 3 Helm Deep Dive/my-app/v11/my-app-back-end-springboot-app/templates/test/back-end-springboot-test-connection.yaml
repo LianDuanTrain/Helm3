@@ -1,0 +1,16 @@
+# Test Springboot URL  '{{ include "my-app-back-end-springboot-app.fullname" . }}:{{ .Values.service.port }}'
+apiVersion: v1
+kind: Pod
+metadata:
+  name:  {{ include "my-app-back-end-springboot-app.fullname" . }}-test-connection
+  labels:
+    {{- include "my-app-back-end-springboot-app.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "my-app-back-end-springboot-app.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

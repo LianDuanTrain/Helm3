@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "my-app-back-end-springboot-app.fullname" . }}-configmap
+data:
+  application.properties: |
+    server.port=9999
+    spring.redis.host= {{ .Values.global.redisServiceName}}
+    spring.redis.port= {{ .Values.global.redisServicePort}}            
