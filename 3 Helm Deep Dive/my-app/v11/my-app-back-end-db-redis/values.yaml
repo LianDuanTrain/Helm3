@@ -88,8 +88,7 @@ tolerations: []
 
 affinity: {}
 
-redis:
-  port: 6379
+
 global:
     redisServiceName: three-tier-app-back-end-db-redis
     redisServicePort: 6379  

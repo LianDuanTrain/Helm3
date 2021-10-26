@@ -1,4 +1,4 @@
-# Test Springboot URL  '{{ include "my-app-back-end-db-redis.fullname" . }}:{{ .Values.service.port }}'
+# Test Springboot URL  '{{ .Values.global.redisServiceName}}:{{ .Values.global.redisServicePort}} '
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,5 +12,5 @@ spec:
     - name: nc-command
       image: busybox
       command: ['nc']
-      args: ['-z','-v', '{{ include "my-app-back-end-db-redis.fullname" .}}','{{ .Values.service.port}}']
+      args: ['-z','-v', '{{ .Values.global.redisServiceName}}','{{ .Values.global.redisServicePort}}']
   restartPolicy: Never

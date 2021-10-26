@@ -15,17 +15,17 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 10.0.0
+version: 11.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "10.0.0"
+appVersion: "11.0.0"
 dependencies:
   - name: my-app-back-end-springboot-app
     repository: file://../my-app-back-end-springboot-app
-    version: 10.0.0
+    version: 11.0.0
   - name: my-app-back-end-db-redis
     repository: file://../my-app-back-end-db-redis
-    version: 10.0.0
+    version: 11.0.0
