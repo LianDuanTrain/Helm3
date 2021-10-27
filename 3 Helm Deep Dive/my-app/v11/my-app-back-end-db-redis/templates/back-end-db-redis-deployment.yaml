@@ -35,7 +35,7 @@ spec:
             memory: {{ .Values.resources.requests.cpu | quote }}
         livenessProbe:
           tcpSocket:
-            port: {{ .Values.redis.port}}
+            port: {{ .Values.service.port }}
           initialDelaySeconds: 300
           timeoutSeconds: 1
           periodSeconds: 1
