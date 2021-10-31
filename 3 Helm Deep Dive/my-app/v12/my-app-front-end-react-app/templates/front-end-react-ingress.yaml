@@ -1,0 +1,34 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "my-app-front-end-react-app.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+# API Version
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # Ingress Object Name 
+  name: {{ $fullName }}
+  labels:
+    {{- include "my-app-front-end-react-app.labels" . | nindent 4 }}
+  # Namespace 
+  # namespace: helm3
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+   # Rule Host match  /etc/hosts
+   # host 80 443 
+    - host: {{ .host | quote }}
+      http:
+        paths:   
+        {{- range .paths }}       
+          - path: /
+            #Path types https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}                 
+        {{- end }}           
+  {{- end }}                
+{{- end }}
+

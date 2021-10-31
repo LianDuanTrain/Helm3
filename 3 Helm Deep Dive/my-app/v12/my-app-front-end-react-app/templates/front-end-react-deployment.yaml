@@ -1,0 +1,47 @@
+# API Version  
+apiVersion: apps/v1
+kind: Deployment
+# Deployment metadata start
+metadata:
+  name: {{ include "my-app-front-end-react-app.fullname" . }}
+  labels:
+    {{- include "my-app-front-end-react-app.labels" . | nindent 4 }}
+  #namespace: helm3  
+# Deployment metadata end
+# Pod spec start    
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "my-app-front-end-react-app.selectorLabels" . | nindent 6 }}
+# Pod spec end
+# template start
+  template:
+    metadata:
+      #namespace: helm3
+      labels:
+        {{- include "my-app-front-end-react-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}      
+        ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+        resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu | quote  }}
+              memory: {{ .Values.resources.limits.memory | quote  }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu | quote  }}
+              memory: {{ .Values.resources.requests.cpu | quote }}      
+        livenessProbe:
+            httpGet:
+              path: /
+              port: http
+        readinessProbe:
+            httpGet:
+              path: /
+              port: http

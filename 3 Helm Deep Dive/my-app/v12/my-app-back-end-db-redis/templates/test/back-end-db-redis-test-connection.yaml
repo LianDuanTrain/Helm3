@@ -1,0 +1,16 @@
+# Test Springboot URL  '{{ .Values.global.redisServiceName}}:{{ .Values.global.redisServicePort}} '
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "my-app-back-end-db-redis.fullname" . }}-test-connection
+  labels:
+      {{- include "my-app-back-end-db-redis.labels" . | nindent 4 }}-test-connection
+  annotations:
+    "helm.sh/hook": test-success    
+spec:
+  containers:
+    - name: nc-command
+      image: busybox
+      command: ['nc']
+      args: ['-z','-v', '{{ .Values.global.redisServiceName}}','{{ .Values.global.redisServicePort}}']
+  restartPolicy: Never
