@@ -4,8 +4,7 @@
 - How to Implement Force Automatically Roll Deployments？
 
 ## Why needs Force Automatically Roll Deployments？
-- Docker container does not redeployment when Configmap is updated
-- Configmap is updated while Docker container does not redeployment
+- Configmap is updated while Pod does not redeployment
 - Demo 
   - Update a Configmap
   - `helm upgrade db . --install --namespace=qa-env --create-namespace --wait`
