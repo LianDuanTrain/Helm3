@@ -21,4 +21,3 @@ volumeClaimTemplate:
   resources:
     requests:
       storage: 500M
-clusterHealthCheckParams: 'wait_for_status=yellow&timeout=1s'
