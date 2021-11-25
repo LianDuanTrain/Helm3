@@ -60,7 +60,7 @@ https://raw.githubusercontent.com/LianDuanTrain/Helm3/master/3%20Helm%20Deep%20D
 ### Verify ELK Stack
 - Create an Index
   - Management=>kibana=>indexPatterns
-- Search Index Aata 
+- Search Index  
   - Analytics=>Discover
 
 ## Summary
