@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: public.ecr.aws/t1f2w6h8/ekswelcome:v1
+        #image: nginx
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.125"
+        ports:
+        - containerPort: 80
