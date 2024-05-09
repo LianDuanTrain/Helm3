@@ -18,7 +18,6 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
-
   default_tags {
     tags = {
       Name = "create-by-terraform-EKS-Demo-need-tag"
@@ -26,8 +25,9 @@ provider "aws" {
   }
 }
 
+# Exec plugins
 provider "helm" {
-  kubernetes {
+  kubernetes {    
     host                   = aws_eks_cluster.eks-demo-cluster-01.endpoint
     cluster_ca_certificate = base64decode(aws_eks_cluster.eks-demo-cluster-01.certificate_authority[0].data)
     exec {
@@ -35,9 +35,14 @@ provider "helm" {
       args        = ["eks", "get-token", "--cluster-name", "eks-demo-cluster-01"]
       command     = "aws"
     }
-    # config_path = "~/.kube/config"
   }
 }
+# Using a kubeconfig file
+#provider "helm" {
+#  kubernetes {        
+#    config_path = "~/.kube/config"
+#  }
+#}
 
 # //////////////////////////////
 #          Resources
@@ -253,12 +258,12 @@ resource "aws_iam_role_policy_attachment" "eks-demo-node-group-AmazonEC2Containe
 }
 
 # Run the update-kubeconfig command after the EKS cluster is created
-#resource "null_resource" "update_kubeconfig" {
-#  provisioner "local-exec" {
-#    command = "aws eks update-kubeconfig --region us-east-1 --name ${aws_eks_cluster.eks-demo-cluster-01.name}"
-#  }
-#  depends_on = [aws_eks_cluster.eks-demo-cluster-01]
-#}
+resource "null_resource" "update_kubeconfig" {
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --region us-east-1 --name ${aws_eks_cluster.eks-demo-cluster-01.name}"
+  }
+  depends_on = [aws_eks_cluster.eks-demo-cluster-01]
+}
 
 resource "helm_release" "demo-nginx" {
   name       = "demo-nginx"
